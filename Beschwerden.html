@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Andreas Highway Patrol – Beschwerde</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="x-icon" href="SAHP.png">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo {
+      height: 40px;
+      width: 40px;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Navigation -->
+  <header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center gap-3">
+        <img src="SAHP.png" alt="SAHP Logo" class="logo">
+        <h1 class="text-xl font-bold">San Andreas Highway Patrol - Law Enforcement</h1>
+      </div>
+      <nav class="space-x-6">
+        <a href="Home.html" class="hover:text-yellow-400">Home</a>
+        <a href="https://sites.google.com/view/carnifexe" class="hover:text-yellow-400">Unser Team</a>
+        <a href="Regeln.html" class="hover:text-yellow-400">Arbeitsvertrag</a>
+        <a href="Bewerben.html" class="hover:text-yellow-400">Bewerben</a>
+        <a href="Beschwerden.html" class="text-yellow-400 underline font-semibold">Beschwerden</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-28 px-4 pb-16 max-w-3xl mx-auto w-full">
+    <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">Beschwerdeformular</h2>
+    <form id="beschwerdeForm" class="bg-gray-800 p-6 rounded-xl space-y-4 shadow-xl">
+      <div>
+        <label class="block mb-1 font-semibold">Ihr Name & ID:</label>
+        <input name="name" type="text" class="w-full rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none" required>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Ihre Telefonnummer:</label>
+        <input name="discord" type="text" class="w-full rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none" required>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Name & ID des Beschuldigtem Officers:</label>
+        <input name="officer" type="text" class="w-full rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none" required>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Datum und Uhrzeit des Vorfalls</label>
+        <input name="zeitpunkt" type="datetime-local" class="w-full rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none" required>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Was ist passiert?</label>
+        <textarea name="beschreibung" class="w-full h-32 rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none" required></textarea>
+      </div>
+      <div>
+        <label class="block mb-1 font-semibold">Beweis-Link (Bodycam)</label>
+        <input name="beweise" type="url" class="w-full rounded px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none">
+      </div>
+      <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-full transition">Absenden</button>
+    </form>
+    <p id="responseMsg" class="mt-4 text-center text-sm"></p>
+  </main>
+
+  <footer class="bg-gray-800 text-center py-4">
+    <p class="text-sm">&copy; 2025 San Andreas Highway Patrol – Made by Moritz Yane - Alle Rechte vorbehalten</p>
+  </footer>
+
+  <script>
+    document.getElementById('beschwerdeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('https://script.google.com/macros/s/AKfycbxIjkUn8QV3e0RJQA04oJDYCR3vWwou-cjD4ZRf6xgOKtRc9jAfsEiL0fsKYXnec9lsnA/exec', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.text())
+      .then(msg => {
+        document.getElementById('responseMsg').textContent = "Vielen Dank! Deine Beschwerde wurde übermittelt.";
+        document.getElementById('beschwerdeForm').reset();
+      })
+      .catch(err => {
+        document.getElementById('responseMsg').textContent = "Fehler beim Senden der Beschwerde. Bitte erneut versuchen.";
+      });
+    });
+  </script>
+</body>
+</html>

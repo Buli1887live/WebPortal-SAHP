@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAHP Webportal - Beschwerden</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="x-icon" href="SAHP.png">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    iframe {
+      flex-grow: 1;
+      width: 100%;
+      margin-top: -20px;
+      border: none;
+    }
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo {
+      height: 30px;
+      width: 30px;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Navigation -->
+  <header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center gap-3">
+        <img src="SAHP.png" alt="SAHP Logo" class="logo">
+        <h1 class="text-xl font-bold">San Andreas Highway Patrol - Law Enforcement</h1>
+      </div>
+      <nav class="space-x-6">
+        <a href="Home.html" class="hover:text-yellow-400">Home</a>
+        <a href="https://sites.google.com/view/carnifexe" target="_blank" class="hover:text-yellow-400">Unser Team</a>
+        <a href="regeln.html" class="text-yellow-400 underline font-semibold">Arbeitsvertrag</a>
+        <a href="Bewerben.html" class="hover:text-yellow-400">Bewerben</a>
+        <a href="Beschwerden.html" class="hover:text-yellow-400">Beschwerden</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 flex-grow">
+    <iframe src="https://docs.google.com/document/d/1G8aiuxkdy8ryZu4_R83m59bBaEFyo_yfglX32y8_JxU/edit?tab=t.0#heading=h.zfpjgnwh782d" class="w-full h-full"></iframe>
+  </main>
+
+<footer class="bg-gray-800 text-center py-4">
+    <p class="text-sm">&copy; 2025 San Andreas Highway Patrol – Made by Moritz Yane - Alle Rechte vorbehalten</p>
+  </footer>
+</body>
+</html>
